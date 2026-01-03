@@ -1,0 +1,689 @@
+/* ==================== GLOBAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #CC0000;
+    --dark-red: #990000;
+    --light-red: #FF3333;
+    --black: #0a0a0a;
+    --dark-gray: #1a1a1a;
+    --light-gray: #333333;
+    --white: #ffffff;
+    --border-color: #CC0000;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #e0e0e0;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==================== HEADER & NAVIGATION ==================== */
+header {
+    background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(204, 0, 0, 0.3);
+    border-bottom: 2px solid var(--primary-red);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-red);
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--primary-red), var(--light-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-red);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-red);
+}
+
+/* ==================== BUTTONS ==================== */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, var(--primary-red), var(--light-red));
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(204, 0, 0, 0.4);
+}
+
+.btn-primary {
+    font-size: 1.1rem;
+    padding: 15px 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-small {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+/* ==================== HERO SECTION ==================== */
+.hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d0000 50%, #0a0a0a 100%);
+    padding: 150px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(204, 0, 0, 0.2), transparent);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -50%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(204, 0, 0, 0.15), transparent);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #FF6666, var(--primary-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(204, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #b0b0b0;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(20px); }
+}
+
+/* ==================== FEATURES PREVIEW ==================== */
+.features-preview {
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.features-preview h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: var(--primary-red);
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.features-preview h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, #1a1a1a, #2d0000);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(204, 0, 0, 0.2), transparent);
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:hover {
+    border-color: var(--primary-red);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(204, 0, 0, 0.3);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: var(--primary-red);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* ==================== ABOUT SECTION ==================== */
+.about {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--primary-red);
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.about h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #1a1a1a, #2d0000);
+    padding: 40px;
+    border-radius: 10px;
+    border-left: 5px solid var(--primary-red);
+}
+
+.about-text h3 {
+    color: #FF6666;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: #d0d0d0;
+    line-height: 1.8;
+}
+
+/* ==================== FEATURES DETAIL ==================== */
+.features-detail {
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+.features-detail h2 {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: var(--primary-red);
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.features-list-detail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    background: linear-gradient(135deg, #1a1a1a, #2d0000);
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    gap: 20px;
+    border: 1px solid rgba(204, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    border-color: var(--primary-red);
+    box-shadow: 0 10px 30px rgba(204, 0, 0, 0.2);
+    transform: translateX(5px);
+}
+
+.feature-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-red);
+    min-width: 60px;
+}
+
+.feature-item h3 {
+    color: #FF6666;
+    margin-bottom: 10px;
+}
+
+/* ==================== COMMUNITY SECTION ==================== */
+.community {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #0a0a0a, #2d0000);
+    text-align: center;
+}
+
+.community h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--primary-red);
+}
+
+.community-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #d0d0d0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==================== P2W SECTION ==================== */
+.p2w {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.p2w h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--primary-red);
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.p2w h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+}
+
+.p2w-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.p2w-card {
+    background: linear-gradient(135deg, #1a1a1a, #2d0000);
+    border: 2px solid rgba(204, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.p2w-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(204, 0, 0, 0.2), transparent);
+    transition: left 0.3s ease;
+}
+
+.p2w-card:hover {
+    border-color: var(--primary-red);
+    box-shadow: 0 15px 40px rgba(204, 0, 0, 0.3);
+    transform: translateY(-10px);
+}
+
+.p2w-card:hover::before {
+    left: 100%;
+}
+
+.icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.p2w-card h3 {
+    color: #FF6666;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.p2w-card p {
+    color: #d0d0d0;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+.features-list {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.features-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(204, 0, 0, 0.2);
+    color: #b0b0b0;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.features-list li:last-child {
+    border-bottom: none;
+}
+
+.features-list li:hover {
+    color: var(--primary-red);
+    padding-left: 10px;
+}
+
+.price {
+    background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.price.highlight {
+    background: linear-gradient(135deg, var(--light-red), #FF6666);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.bundle-card {
+    border-color: var(--primary-red) !important;
+    box-shadow: 0 0 20px rgba(204, 0, 0, 0.3);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* ==================== TEAM SECTION ==================== */
+.team {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+#team {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+#team h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--primary-red);
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+#team h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.team-card {
+    background: linear-gradient(135deg, #1a1a1a, #2d0000);
+    border: 2px solid rgba(204, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.team-card:hover {
+    border-color: var(--primary-red);
+    box-shadow: 0 15px 40px rgba(204, 0, 0, 0.3);
+    transform: translateY(-10px);
+}
+
+.team-header {
+    background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
+    padding: 20px;
+    text-align: center;
+}
+
+.team-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.team-body {
+    padding: 25px;
+}
+
+.team-body p {
+    margin-bottom: 10px;
+    color: #d0d0d0;
+}
+
+.team-body strong {
+    color: var(--primary-red);
+}
+
+.team-card.founder .team-header {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+.team-card.owner .team-header {
+    background: linear-gradient(135deg, #FF6B9D, #FF1E4D);
+}
+
+.team-card.developer .team-header {
+    background: linear-gradient(135deg, #00BFFF, #1E90FF);
+}
+
+.team-card.admin .team-header {
+    background: linear-gradient(135deg, #7B2CBF, #C60D7B);
+}
+
+.team-card.streamer .team-header {
+    background: linear-gradient(135deg, #FF00FF, #FF69B4);
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    background: #000000;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 2px solid var(--primary-red);
+    color: #888;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+    }
+
+    .features-preview h2,
+    .about h2,
+    .team h2,
+    #team h2,
+    .p2w h2 {
+        font-size: 2rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .p2w-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
