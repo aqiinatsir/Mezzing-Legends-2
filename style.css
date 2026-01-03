@@ -147,6 +147,13 @@ header {
     font-size: 0.9rem;
 }
 
+.btn-buy {
+    background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
 /* ==================== HERO SECTION ==================== */
 .hero {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d0000 50%, #0a0a0a 100%);
@@ -400,22 +407,64 @@ header {
     margin-right: auto;
 }
 
-/* ==================== P2W SECTION ==================== */
-.p2w {
-    padding: 100px 20px;
+/* ==================== P2W HERO SECTION ==================== */
+.p2w-hero {
+    background: linear-gradient(135deg, #2d0000 0%, #0a0a0a 50%, #1a1a1a 100%);
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.p2w-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(204, 0, 0, 0.25), transparent);
+    border-radius: 50%;
+}
+
+.p2w-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #FF3333, var(--primary-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+}
+
+.p2w-hero p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==================== P2W MAIN SECTION ==================== */
+.p2w-main {
+    padding: 80px 20px;
     background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
-.p2w h2 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
+.p2w-category {
+    margin-bottom: 80px;
+}
+
+.category-header {
+    font-size: 2rem;
     color: var(--primary-red);
+    margin-bottom: 10px;
     text-align: center;
     position: relative;
     padding-bottom: 20px;
 }
 
-.p2w h2::after {
+.category-header::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -426,17 +475,28 @@ header {
     background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
 }
 
+.category-desc {
+    text-align: center;
+    color: #b0b0b0;
+    margin-bottom: 40px;
+    font-size: 1.05rem;
+}
+
 .p2w-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    gap: 25px;
+}
+
+.bundle-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .p2w-card {
     background: linear-gradient(135deg, #1a1a1a, #2d0000);
     border: 2px solid rgba(204, 0, 0, 0.3);
     border-radius: 10px;
-    padding: 30px;
+    padding: 25px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -465,23 +525,46 @@ header {
     left: 100%;
 }
 
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.premium-badge {
+    background: linear-gradient(135deg, #FFD700, #FFA500) !important;
+    color: #000 !important;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
 .icon {
     font-size: 2.5rem;
-    margin-bottom: 15px;
-    text-align: center;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .p2w-card h3 {
     color: #FF6666;
     font-size: 1.4rem;
     margin-bottom: 15px;
-    text-align: center;
 }
 
 .p2w-card p {
     color: #d0d0d0;
-    margin-bottom: 20px;
-    font-size: 0.95rem;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
     flex-grow: 1;
 }
 
@@ -507,6 +590,10 @@ header {
     padding-left: 10px;
 }
 
+.bundle-features {
+    margin-bottom: 25px;
+}
+
 .price {
     background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
     color: white;
@@ -518,14 +605,213 @@ header {
     font-size: 1.1rem;
 }
 
-.price.highlight {
+.premium-price {
     background: linear-gradient(135deg, var(--light-red), #FF6666);
+}
+
+.bundle-price {
+    margin-bottom: 10px;
+}
+
+.discount-badge {
+    display: block;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
     animation: pulse 2s ease-in-out infinite;
 }
 
+.premium-discount {
+    color: #FFD700 !important;
+}
+
+.rank-card {
+    border-left: 5px solid transparent;
+}
+
+.rank-card:nth-child(5),
+.rank-card:nth-child(6) {
+    border-left-color: #FFD700;
+}
+
+.skill-card {
+    border-top: 5px solid transparent;
+}
+
+.weapon-card {
+    border-top: 5px solid transparent;
+}
+
+.weapon-card.premium {
+    border-top-color: #FF6347;
+}
+
 .bundle-card {
-    border-color: var(--primary-red) !important;
+    border: 2px solid rgba(204, 0, 0, 0.5);
+}
+
+.bundle-card.premium {
+    border-color: var(--primary-red);
     box-shadow: 0 0 20px rgba(204, 0, 0, 0.3);
+}
+
+/* ==================== PAYMENT INFO ==================== */
+.payment-info {
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+.payment-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: var(--primary-red);
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.payment-info h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+}
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.payment-method {
+    background: linear-gradient(135deg, #1a1a1a, #2d0000);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(204, 0, 0, 0.3);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.payment-method:hover {
+    border-color: var(--primary-red);
+    box-shadow: 0 10px 30px rgba(204, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.payment-method h3 {
+    color: #FF6666;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.payment-method p {
+    color: #d0d0d0;
+    margin-bottom: 10px;
+}
+
+.payment-highlight {
+    color: var(--primary-red) !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.payment-list {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.payment-list li {
+    color: #b0b0b0;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(204, 0, 0, 0.2);
+}
+
+.payment-list li:last-child {
+    border-bottom: none;
+}
+
+/* ==================== FAQ SECTION ==================== */
+.faq-section {
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.faq-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: var(--primary-red);
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.faq-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.faq-item {
+    background: linear-gradient(135deg, #1a1a1a, #2d0000);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(204, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: var(--primary-red);
+    box-shadow: 0 10px 25px rgba(204, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.faq-item h3 {
+    color: #FF6666;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.faq-item p {
+    color: #d0d0d0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ==================== CTA SECTION ==================== */
+.cta-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #2d0000, #0a0a0a);
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #FF6666;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    color: #d0d0d0;
+    margin-bottom: 40px;
 }
 
 @keyframes pulse {
@@ -539,35 +825,51 @@ header {
     background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
-#team {
-    padding: 100px 20px;
-    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
-}
-
-#team h2 {
+.team h2 {
     font-size: 2.5rem;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     color: var(--primary-red);
     text-align: center;
-    position: relative;
-    padding-bottom: 20px;
 }
 
-#team h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+.team-subtitle {
+    text-align: center;
+    color: #b0b0b0;
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+
+.team-category {
+    margin-bottom: 60px;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    color: #FF6666;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(204, 0, 0, 0.3);
 }
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+}
+
+.team-grid.leadership {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.team-grid.technical {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.team-grid.moderation {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.team-grid.support {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .team-card {
@@ -614,6 +916,13 @@ header {
     color: var(--primary-red);
 }
 
+.team-desc {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    margin-top: 15px !important;
+    font-style: italic;
+}
+
 .team-card.founder .team-header {
     background: linear-gradient(135deg, #FFD700, #FFA500);
 }
@@ -630,8 +939,31 @@ header {
     background: linear-gradient(135deg, #7B2CBF, #C60D7B);
 }
 
+.team-card.builder .team-header {
+    background: linear-gradient(135deg, #FF8C00, #FF6347);
+}
+
 .team-card.streamer .team-header {
     background: linear-gradient(135deg, #FF00FF, #FF69B4);
+}
+
+/* ==================== RECRUITMENT ==================== */
+.recruitment {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #2d0000, #0a0a0a);
+    text-align: center;
+}
+
+.recruitment h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-red);
+}
+
+.recruitment p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #d0d0d0;
 }
 
 /* ==================== FOOTER ==================== */
@@ -669,9 +1001,7 @@ footer {
 
     .features-preview h2,
     .about h2,
-    .team h2,
-    #team h2,
-    .p2w h2 {
+    .team h2 {
         font-size: 2rem;
     }
 
@@ -679,11 +1009,10 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .p2w-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .team-grid {
+    .team-grid.leadership,
+    .team-grid.technical,
+    .team-grid.moderation,
+    .team-grid.support {
         grid-template-columns: 1fr;
     }
 }
